@@ -22,10 +22,7 @@ const Header = () => {
       });
   };
   return (
-    <div
-      style={{ backgroundColor: "#383838" }}
-      className="navbar sticky text-white"
-    >
+    <div style={{ backgroundColor: "#383838" }} className="navbar  text-white">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -74,9 +71,6 @@ const Header = () => {
                   <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                     <img src={user?.photoURL} />
                   </div>
-                  <span class="tooltiptext text-white">
-                    {user?.displayName}
-                  </span>
                 </div>
                 <NavLink onClick={handleLogout} className="mt-2 normal-case">
                   <button className="btn btn-sm ms-3"> Log Out</button>
@@ -125,7 +119,6 @@ const Header = () => {
               <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                 <img src={user?.photoURL} />
               </div>
-              <span class="tooltiptext text-white">{user?.displayName}</span>
             </div>
             <NavLink
               onClick={handleLogout}
