@@ -1,8 +1,9 @@
 import React from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
+import { Link } from "react-router-dom";
 import "./service.css";
 const Service = ({ service }) => {
-  const { image_url, title, details, price, rating } = service;
+  const { image_url, title, details, price, rating, _id } = service;
   return (
     <div className="card card-container bg-black">
       <PhotoProvider>
@@ -47,7 +48,12 @@ const Service = ({ service }) => {
               className="mask mask-star bg-orange-400"
             />
           </div>
-          <button className="btn btn-outline btn-warning">Show Details</button>
+
+          <Link to={`/details/${_id}`}>
+            <button className="btn btn-outline btn-warning">
+              Show Details
+            </button>
+          </Link>
         </div>
       </div>
     </div>
