@@ -1,0 +1,14 @@
+.icon-container img {
+    height: 47px;
+    width: 47px;
+    border: 1px solid lightblue;
+    padding: 6px;
+    border-radius: 10px;
+    margin-right: 15px;
+    cursor: pointer;
+
+}
+
+.icon-container {
+    text-align: center;
+}
