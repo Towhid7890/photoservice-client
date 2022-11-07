@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Service from "./Service";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -16,10 +17,17 @@ const Services = () => {
           All Of Out Services
         </h1>
       </div>
-      <div className="grid grid-cols-3 w-11/12 mx-auto gap-10 mt-10 pb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 mx-auto gap-10 mt-10 pb-10">
         {services.map((service) => (
           <Service key={service._id} service={service}></Service>
         ))}
+      </div>
+      <div className="text-center pb-10">
+        <Link className="" to="/allServices">
+          <button className="btn btn-outline btn-warning">
+            Show All Services
+          </button>
+        </Link>
       </div>
     </div>
   );

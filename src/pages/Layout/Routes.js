@@ -4,6 +4,7 @@ import Notfound from "../Notfound/Notfound";
 import Root from "./Root";
 import Login from "./../Login/Login";
 import Register from "./../Register/Register";
+import AllService from "../AllService/AllService";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,11 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/allServices",
+        loader: () => fetch("http://localhost:5000/allServices"),
+        element: <AllService></AllService>,
       },
     ],
   },

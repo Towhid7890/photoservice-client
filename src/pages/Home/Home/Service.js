@@ -1,18 +1,53 @@
 import React from "react";
+import { PhotoProvider, PhotoView } from "react-photo-view";
 import "./service.css";
 const Service = ({ service }) => {
-  const { image_url, title, details } = service;
+  const { image_url, title, details, price, rating } = service;
   return (
     <div className="card card-container bg-black">
-      <figure>
-        <img className="h-64 w-full" src={image_url} alt="Shoes" />
-      </figure>
+      <PhotoProvider>
+        <PhotoView src={image_url}>
+          <figure>
+            <img className="h-64 w-full" src={image_url} alt="Shoes" />
+          </figure>
+        </PhotoView>
+      </PhotoProvider>
+
       <div className="card-body">
         <h2 className="text-2xl font-bold text-amber-500">{title}</h2>
         <p className="text-amber-500">{details.slice(0, 100)}...</p>
-        <div className="card-actions justify-end">
-          <div className="badge badge-outline">Fashion</div>
-          <div className="badge badge-outline">Products</div>
+        <p className="text-amber-500">Price: {price}</p>
+        <p className="text-amber-500">Rating: {rating.badge}</p>
+        <div className="card-actions items-center justify-end">
+          <div className="rating">
+            <input
+              type="radio"
+              name="rating-2"
+              className="mask mask-star bg-orange-400"
+            />
+            <input
+              type="radio"
+              name="rating-2"
+              className="mask mask-star bg-orange-400"
+              checked
+            />
+            <input
+              type="radio"
+              name="rating-2"
+              className="mask mask-star bg-orange-400"
+            />
+            <input
+              type="radio"
+              name="rating-2"
+              className="mask mask-star bg-orange-400"
+            />
+            <input
+              type="radio"
+              name="rating-2"
+              className="mask mask-star bg-orange-400"
+            />
+          </div>
+          <button className="btn btn-outline btn-warning">Show Details</button>
         </div>
       </div>
     </div>
