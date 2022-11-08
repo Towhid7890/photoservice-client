@@ -1,0 +1,93 @@
+import React from "react";
+import { toast } from "react-hot-toast";
+
+const AddService = () => {
+  const handleAddService = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const title = form.name.value;
+    const details = form.details.value;
+    const price = form.price.value;
+    const image_url = form.photoUrl.value;
+    const number = form.rating.value;
+    const service = {
+      title,
+      details,
+      price,
+      image_url,
+      rating: { number: number, badge: "Excellent" },
+    };
+    fetch("http://localhost:5000/addService", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(service),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          form.reset();
+          toast.success("Review done successfully");
+        }
+      });
+  };
+  return (
+    <div className="w-3/4 mx-auto">
+      <form onSubmit={handleAddService}>
+        <div className="form-control mt-3">
+          <input
+            type="text"
+            name="name"
+            required
+            placeholder="Service name"
+            className="input input-bordered"
+          />
+        </div>
+        <div className="form-control mt-3">
+          <input
+            type="text"
+            name="details"
+            required
+            placeholder="Details"
+            className="input input-bordered"
+          />
+        </div>
+        <div className="form-control mt-3">
+          <input
+            type="text"
+            name="price"
+            required
+            placeholder="Price"
+            className="input input-bordered"
+          />
+        </div>
+        <div className="form-control mt-3">
+          <input
+            type="text"
+            name="photoUrl"
+            required
+            placeholder="imgUrl"
+            className="input input-bordered"
+          />
+        </div>
+        <div className="form-control mt-3">
+          <input
+            type="text"
+            name="rating"
+            required
+            placeholder="Rating"
+            className="input input-bordered"
+          />
+        </div>
+        <div className="form-control mt-3">
+          <input
+            type="submit"
+            value="Add Service"
+            className="btn-accent btn  input-bordered"
+          />
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default AddService;

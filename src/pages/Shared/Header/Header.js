@@ -116,7 +116,7 @@ const Header = () => {
             <NavLink to="/myReviews" className="btn btn-ghost normal-case">
               My Reviews
             </NavLink>
-            <NavLink to="/faq" className="btn btn-ghost normal-case">
+            <NavLink to="/addServices" className="btn btn-ghost normal-case">
               Add Service
             </NavLink>
             <div className="avatar tool ">

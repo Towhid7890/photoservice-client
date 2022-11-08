@@ -1,9 +1,42 @@
 import React, { useContext, useState } from "react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { MyContext } from "../../context/AuthContext";
 
 const ReviewCard = ({ review }) => {
+  const navigate = useNavigate();
   const [reviews, setReviews] = useState(review);
   const { user } = useContext(MyContext);
+  // this is for update method
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const date = form.date.value;
+    const message = form.message.value;
+    const serviceName = form.serviceName.value;
+    const reviews = {
+      serviceName,
+      date,
+      message,
+    };
+    const url = `http://localhost:5000/myReviews/${review._id}`;
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(reviews),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        e.target.reset();
+        navigate("/myReviews");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+  // this is for delete method
   const handleDelete = (userId) => {
     const agree = window.confirm("Are you sure you want to delete");
     if (agree) {
@@ -40,7 +73,58 @@ const ReviewCard = ({ review }) => {
         >
           Delete
         </button>
-        <button className="btn btn-outline btn-warning">Update</button>
+        {/* The button to open modal */}
+        <label htmlFor="my-modal" className="btn btn-outline btn-warning">
+          Update
+        </label>
+
+        <input type="checkbox" id="my-modal" className="modal-toggle" />
+        <div className="modal">
+          <div className="modal-box bg-black">
+            <form onSubmit={handleUpdate}>
+              <div className="form-control mt-3">
+                <input
+                  type="text"
+                  name="serviceName"
+                  required
+                  placeholder="your Service name"
+                  className="input input-bordered"
+                />
+              </div>
+
+              <div className="mt-3">
+                <input
+                  type="date"
+                  required
+                  name="date"
+                  id=""
+                  className="input input-bordered"
+                />
+              </div>
+              <div>
+                <textarea
+                  name="message"
+                  required
+                  type="text"
+                  className="textarea w-full mt-3"
+                  placeholder="Write your Review"
+                ></textarea>
+              </div>
+              <div className="form-control mt-6">
+                <input
+                  className="btn btn-primary"
+                  type="submit"
+                  value="Update Review"
+                />
+              </div>
+            </form>
+            <div className="modal-action">
+              <label htmlFor="my-modal" className="btn">
+                X
+              </label>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
