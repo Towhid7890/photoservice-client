@@ -31,7 +31,7 @@ const AddService = () => {
       });
   };
   return (
-    <div className="w-3/4 mx-auto">
+    <div className="w-3/4 mx-auto py-10">
       <form onSubmit={handleAddService}>
         <div className="form-control mt-3">
           <input
@@ -43,7 +43,7 @@ const AddService = () => {
           />
         </div>
         <div className="form-control mt-3">
-          <input
+          <textarea
             type="text"
             name="details"
             required

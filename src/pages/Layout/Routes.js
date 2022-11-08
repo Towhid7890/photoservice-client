@@ -8,6 +8,7 @@ import AllService from "../AllService/AllService";
 import ShowDetails from "../ShowDetails/ShowDetails";
 import MyReviews from "../MyReviews/MyReviews";
 import AddService from "./../AllService/AddService";
+import Blog from "./../Home/Blog/Blog";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
       {
         path: "/addServices",
         element: <AddService></AddService>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
     ],
   },
