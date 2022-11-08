@@ -16,9 +16,17 @@ const MyReviews = () => {
         Explore My Excellent Review
       </h2>
       <div className="w-full mt-10">
-        {reviews.map((review) => (
-          <ReviewCard review={review} key={review._id}></ReviewCard>
-        ))}
+        {reviews.length === 0 ? (
+          <p className="text-white text-3xl text-center">
+            You have No Review !!! Please give some Review
+          </p>
+        ) : (
+          <>
+            {reviews.map((review) => (
+              <ReviewCard review={review} key={review._id}></ReviewCard>
+            ))}
+          </>
+        )}
       </div>
     </div>
   );
