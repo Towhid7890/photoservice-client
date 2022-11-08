@@ -22,8 +22,21 @@ const Login = () => {
     userLogin(email, password)
       .then((result) => {
         const user = result.user;
-        toast.success("Successfully login");
-        navigate(from, { replace: true });
+        const currentUser = {
+          email: user?.email,
+        };
+        // jwt access token get
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("picman-token", data.token);
+            toast.success("Successfully login");
+            navigate(from, { replace: true });
+          });
       })
       .catch((error) => {
         const errorMessage = error.message;

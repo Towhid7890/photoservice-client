@@ -1,14 +1,25 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../context/AuthContext";
 import ReviewCard from "./ReviewCard";
+import useTitle from "./../../hooks/useTitle";
 
 const MyReviews = () => {
+  useTitle("myReviews");
   const { user } = useContext(MyContext);
   const [reviews, setReviews] = useState([]);
   const url = `http://localhost:5000/myReviews?email=${user?.email}`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => setReviews(data));
+  useEffect(() => {
+    fetch(url, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("picman-token")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setReviews(data);
+      });
+  }, [reviews]);
 
   return (
     <div>
