@@ -75,7 +75,7 @@ const ReviewCard = ({ review }) => {
         </button>
         {/* The button to open modal */}
         <label htmlFor="my-modal" className="btn btn-outline btn-warning">
-          Update
+          Edit Review
         </label>
 
         <input type="checkbox" id="my-modal" className="modal-toggle" />

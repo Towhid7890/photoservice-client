@@ -72,7 +72,7 @@ const ShowDetails = () => {
 
           <div className="card-body">
             {reviews.length === 0 ? (
-              <h2 className="text-amber-500 text-2xl">
+              <h2 className="text-amber-500 text-2xl text-center">
                 No reviews For this Service
               </h2>
             ) : (
