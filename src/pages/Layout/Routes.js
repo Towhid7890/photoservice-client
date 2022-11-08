@@ -6,6 +6,7 @@ import Login from "./../Login/Login";
 import Register from "./../Register/Register";
 import AllService from "../AllService/AllService";
 import ShowDetails from "../ShowDetails/ShowDetails";
+import MyReviews from "../MyReviews/MyReviews";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/services/${params.id}`),
         element: <ShowDetails></ShowDetails>,
+      },
+      {
+        path: "/myReviews",
+        element: <MyReviews></MyReviews>,
       },
     ],
   },

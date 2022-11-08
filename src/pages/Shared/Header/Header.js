@@ -107,14 +107,18 @@ const Header = () => {
         <NavLink to="/courses" className="btn btn-ghost normal-case">
           Courses
         </NavLink>
-        <NavLink to="/faq" className="btn btn-ghost normal-case">
-          FAQ
-        </NavLink>
+
         <NavLink to="/blog" className="btn btn-ghost normal-case">
           Blog
         </NavLink>
         {user?.uid ? (
           <>
+            <NavLink to="/myReviews" className="btn btn-ghost normal-case">
+              My Reviews
+            </NavLink>
+            <NavLink to="/faq" className="btn btn-ghost normal-case">
+              Add Service
+            </NavLink>
             <div className="avatar tool ">
               <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                 <img src={user?.photoURL} />
