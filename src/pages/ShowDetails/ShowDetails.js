@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { MyContext } from "../../context/AuthContext";
 
 const ShowDetails = () => {
@@ -38,8 +38,8 @@ const ShowDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          toast.success("Review done successfully");
           form.reset();
+          toast.success("Review done successfully");
         }
       });
   };
@@ -105,56 +105,70 @@ const ShowDetails = () => {
                 ))}
               </>
             )}
-            <form onSubmit={handleReview}>
-              <div className="form-control">
-                <input
-                  name="email"
-                  defaultValue={user?.email}
-                  type="text"
-                  placeholder="email"
-                  className="input input-bordered"
-                />
-              </div>
-              <div className="form-control mt-3">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="your name"
-                  className="input input-bordered"
-                />
-              </div>
-              <div className="form-control mt-3">
-                <input
-                  type="text"
-                  name="photoUrl"
-                  placeholder="your PhotUrl"
-                  className="input input-bordered"
-                />
-              </div>
-              <div className="mt-3">
-                <input
-                  type="date"
-                  name="date"
-                  id=""
-                  className="input input-bordered"
-                />
-              </div>
-              <div>
-                <textarea
-                  name="message"
-                  type="text"
-                  className="textarea w-full mt-3"
-                  placeholder="Write your Review"
-                ></textarea>
-              </div>
-              <div className="form-control mt-6">
-                <input
-                  className="btn btn-primary"
-                  type="submit"
-                  value="Add Review"
-                />
-              </div>
-            </form>
+            {user?.email ? (
+              <form onSubmit={handleReview}>
+                <div className="form-control">
+                  <input
+                    name="email"
+                    required
+                    defaultValue={user?.email}
+                    type="text"
+                    placeholder="email"
+                    className="input input-bordered"
+                  />
+                </div>
+                <div className="form-control mt-3">
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="your name"
+                    className="input input-bordered"
+                  />
+                </div>
+                <div className="form-control mt-3">
+                  <input
+                    type="text"
+                    required
+                    name="photoUrl"
+                    placeholder="your PhotUrl"
+                    className="input input-bordered"
+                  />
+                </div>
+                <div className="mt-3">
+                  <input
+                    type="date"
+                    required
+                    name="date"
+                    id=""
+                    className="input input-bordered"
+                  />
+                </div>
+                <div>
+                  <textarea
+                    name="message"
+                    required
+                    type="text"
+                    className="textarea w-full mt-3"
+                    placeholder="Write your Review"
+                  ></textarea>
+                </div>
+                <div className="form-control mt-6">
+                  <input
+                    className="btn btn-primary"
+                    type="submit"
+                    value="Add Review"
+                  />
+                </div>
+              </form>
+            ) : (
+              <>
+                <p className="text-amber-500">Add To Your Review?</p>
+                <Link to="/login" className="text-white">
+                  Login First
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

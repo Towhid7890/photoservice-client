@@ -51,8 +51,8 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link to="/courses" className="normal-case">
-                Courses
+              <Link to="/allServices" className="normal-case">
+                Services
               </Link>
             </li>
             <li>
@@ -104,8 +104,8 @@ const Header = () => {
         <NavLink to="/" className="btn btn-ghost normal-case">
           Home
         </NavLink>
-        <NavLink to="/courses" className="btn btn-ghost normal-case">
-          Courses
+        <NavLink to="/allServices" className="btn btn-ghost normal-case">
+          Services
         </NavLink>
 
         <NavLink to="/blog" className="btn btn-ghost normal-case">
