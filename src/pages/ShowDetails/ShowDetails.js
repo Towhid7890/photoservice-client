@@ -71,33 +71,40 @@ const ShowDetails = () => {
           </h2>
 
           <div className="card-body">
-            {reviews.map((review) => (
-              <div
-                key={review._id}
-                className="card w-full border text-neutral-content"
-              >
-                <div className="p-5 flex space-between">
-                  <div className="mr-5">
-                    <div className="avatar">
-                      <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                        <img src={`${review.photoURL}`} />
+            {reviews.length === 0 ? (
+              <h2 className="text-amber-500 text-2xl">
+                No reviews For this Service
+              </h2>
+            ) : (
+              <>
+                {reviews.map((review) => (
+                  <div
+                    key={review._id}
+                    className="card w-full border text-neutral-content"
+                  >
+                    <div className="p-5 flex space-between">
+                      <div className="mr-5">
+                        <div className="avatar">
+                          <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                            <img src={`${review.photoURL}`} />
+                          </div>
+                        </div>{" "}
+                        <br />
+                        <small>{review.reviewer}</small>
                       </div>
-                    </div>{" "}
-                    <br />
-                    <small>{review.reviewer}</small>
-                  </div>
 
-                  <div className="">
-                    <p>{service.title}</p>
-                    <p>{review.message}</p>
-                    <p>
-                      <small>Review In : {review.date}</small>
-                    </p>
+                      <div className="">
+                        <p>{service.title}</p>
+                        <p>{review.message}</p>
+                        <p>
+                          <small>Review In : {review.date}</small>
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
-
+                ))}
+              </>
+            )}
             <form onSubmit={handleReview}>
               <div className="form-control">
                 <input
