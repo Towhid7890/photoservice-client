@@ -31,13 +31,18 @@ export const router = createBrowserRouter([
       },
       {
         path: "/allServices",
-        loader: () => fetch("http://localhost:5000/allServices"),
+        loader: () =>
+          fetch(
+            "https://b6a11-service-review-server-side-towhid7890.vercel.app/allServices"
+          ),
         element: <AllService></AllService>,
       },
       {
         path: "/details/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(
+            `https://b6a11-service-review-server-side-towhid7890.vercel.app/services/${params.id}`
+          ),
         element: <ShowDetails></ShowDetails>,
       },
       {

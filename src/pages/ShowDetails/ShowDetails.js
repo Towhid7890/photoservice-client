@@ -7,7 +7,7 @@ const ShowDetails = () => {
   const service = useLoaderData();
   const { user } = useContext(MyContext);
   const [reviews, setReviews] = useState([]);
-  const url = `http://localhost:5000/reviews?serviceName=${service.title}`;
+  const url = `https://b6a11-service-review-server-side-towhid7890.vercel.app/reviews?serviceName=${service.title}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => setReviews(data));
@@ -30,11 +30,14 @@ const ShowDetails = () => {
       message,
     };
     console.log(reviews);
-    fetch("http://localhost:5000/reviews", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(reviews),
-    })
+    fetch(
+      "https://b6a11-service-review-server-side-towhid7890.vercel.app/reviews",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(reviews),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {

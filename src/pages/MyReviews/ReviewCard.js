@@ -1,10 +1,8 @@
 import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 import { MyContext } from "../../context/AuthContext";
 
 const ReviewCard = ({ review }) => {
-  const navigate = useNavigate();
   const [reviews, setReviews] = useState(review);
   const { user } = useContext(MyContext);
   // this is for update method
@@ -19,7 +17,7 @@ const ReviewCard = ({ review }) => {
       date,
       message,
     };
-    const url = `http://localhost:5000/myReviews/${review._id}`;
+    const url = `https://b6a11-service-review-server-side-towhid7890.vercel.app/myReviews/${review._id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -30,7 +28,8 @@ const ReviewCard = ({ review }) => {
       .then((response) => response.json())
       .then((data) => {
         e.target.reset();
-        navigate("/myReviews");
+        alert("updated review");
+        toast.success("Review Edit Successfully");
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -40,14 +39,17 @@ const ReviewCard = ({ review }) => {
   const handleDelete = (userId) => {
     const agree = window.confirm("Are you sure you want to delete");
     if (agree) {
-      fetch(`http://localhost:5000/myReviews/${review._id}`, {
-        method: "DELETE",
-      })
+      fetch(
+        `https://b6a11-service-review-server-side-towhid7890.vercel.app/myReviews/${review._id}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount > 0) {
             alert("Deleted successfully");
-            const remaining = reviews.filter((us) => us._id !== userId);
+            const remaining = review.filter((us) => us._id !== userId);
             setReviews(remaining);
           }
         });
