@@ -16,7 +16,7 @@ const Services = () => {
     <div>
       <div>
         <h1 className="text-4xl text-center mt-10 font-bold text-white">
-          All Of Out Services
+          All Of My Services
         </h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 mx-auto gap-10 mt-10 pb-10">

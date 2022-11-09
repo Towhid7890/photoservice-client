@@ -11,9 +11,8 @@ const Banner = () => {
             Capture Love, Joy & Everything With Us
           </h1>
           <p className="mb-5">
-            It is a long established fact that a reader will be distracted by
-            the reale he point of using Lorem Ipsum is that it has a
-            more-or-less normal valid.
+            Find the best photography services and explore with photography
+            world with my awesome services
           </p>
           <button className="btn btn-secondary">Get Started</button>
         </div>

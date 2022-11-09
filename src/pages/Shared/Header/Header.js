@@ -22,7 +22,7 @@ const Header = () => {
       });
   };
   return (
-    <div style={{ backgroundColor: "#383838" }} className="navbar  text-white">
+    <div className="navbar bg-black text-white ">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -46,27 +46,34 @@ const Header = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-gray-800 rounded-box w-52 duration-700"
           >
             <li>
-              <Link to="/" className="text-white text-base">
+              <Link to="/" className="text-white text-base ">
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/allServices" className="normal-case">
+              <NavLink to="/allServices" className="text-white text-base">
                 Services
-              </Link>
-            </li>
-            <li>
-              <NavLink to="/faq" className=" normal-case">
-                FAQ
               </NavLink>
             </li>
             <li>
-              <NavLink to="/blog" className=" normal-case">
+              <NavLink to="/blog" className="text-white text-base">
                 Blog
               </NavLink>
             </li>
+
             {user?.uid ? (
               <>
+                <li>
+                  <NavLink to="/myReviews" className="text-white normal-case">
+                    My Reviews
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/addServices" className="text-white normal-case">
+                    Add Service
+                  </NavLink>
+                </li>
+
                 <div className="avatar tool ">
                   <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                     <img src={user?.photoURL} />
@@ -78,12 +85,16 @@ const Header = () => {
               </>
             ) : (
               <>
-                <NavLink to="/login" className=" normal-case">
-                  Login
-                </NavLink>
-                <NavLink to="/register" className=" normal-case">
-                  Sign Up
-                </NavLink>
+                <li>
+                  <NavLink to="/login" className=" normal-case">
+                    Login
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/register" className=" normal-case">
+                    Sign Up
+                  </NavLink>
+                </li>
               </>
             )}
             <>
