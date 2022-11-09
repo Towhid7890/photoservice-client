@@ -17,7 +17,7 @@ const ReviewCard = ({ review }) => {
       date,
       message,
     };
-    const url = `https://b6a11-service-review-server-side-towhid7890.vercel.app/myReviews/${review._id}`;
+    const url = `https://fullstack-assignment11-server.vercel.app/myReviews/${review._id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -40,7 +40,7 @@ const ReviewCard = ({ review }) => {
     const agree = window.confirm("Are you sure you want to delete");
     if (agree) {
       fetch(
-        `https://b6a11-service-review-server-side-towhid7890.vercel.app/myReviews/${review._id}`,
+        `https://fullstack-assignment11-server.vercel.app/myReviews/${review._id}`,
         {
           method: "DELETE",
         }

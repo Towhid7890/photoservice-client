@@ -7,7 +7,7 @@ const MyReviews = () => {
   useTitle("myReviews");
   const { user } = useContext(MyContext);
   const [reviews, setReviews] = useState([]);
-  const url = `https://b6a11-service-review-server-side-towhid7890.vercel.app/myReviews?email=${user.email}`;
+  const url = `https://fullstack-assignment11-server.vercel.app/myReviews?email=${user.email}`;
   fetch(url, {
     headers: {
       authorization: `Bearer ${localStorage.getItem("picman-token")}`,

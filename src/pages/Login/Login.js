@@ -26,14 +26,11 @@ const Login = () => {
           email: user?.email,
         };
         // jwt access token get
-        fetch(
-          "https://b6a11-service-review-server-side-towhid7890.vercel.app/jwt",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(currentUser),
-          }
-        )
+        fetch("https://fullstack-assignment11-server.vercel.app/jwt", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(currentUser),
+        })
           .then((res) => res.json())
           .then((data) => {
             localStorage.setItem("picman-token", data.token);

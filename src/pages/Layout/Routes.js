@@ -32,16 +32,14 @@ export const router = createBrowserRouter([
       {
         path: "/allServices",
         loader: () =>
-          fetch(
-            "https://b6a11-service-review-server-side-towhid7890.vercel.app/allServices"
-          ),
+          fetch("https://fullstack-assignment11-server.vercel.app/allServices"),
         element: <AllService></AllService>,
       },
       {
         path: "/details/:id",
         loader: ({ params }) =>
           fetch(
-            `https://b6a11-service-review-server-side-towhid7890.vercel.app/services/${params.id}`
+            `https://fullstack-assignment11-server.vercel.app/services/${params.id}`
           ),
         element: <ShowDetails></ShowDetails>,
       },

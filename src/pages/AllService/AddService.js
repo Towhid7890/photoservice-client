@@ -19,14 +19,11 @@ const AddService = () => {
       image_url,
       rating: { number: number, badge: "Excellent" },
     };
-    fetch(
-      "https://b6a11-service-review-server-side-towhid7890.vercel.app/addService",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(service),
-      }
-    )
+    fetch("https://fullstack-assignment11-server.vercel.app/addService", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(service),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
