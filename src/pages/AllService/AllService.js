@@ -13,11 +13,19 @@ const AllService = () => {
           Explore all of my services, <br /> Choose your best one
         </h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-10 w-11/12 mx-auto">
-        {services.map((service) => (
-          <Service service={service} key={service._id}></Service>
-        ))}
-      </div>
+      {services.length === 0 ? (
+        <div>
+          <button className="btn loading">loading</button>
+        </div>
+      ) : (
+        <>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-10 w-11/12 mx-auto">
+            {services.map((service) => (
+              <Service service={service} key={service._id}></Service>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };
