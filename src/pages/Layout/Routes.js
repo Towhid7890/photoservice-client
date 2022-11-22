@@ -41,7 +41,11 @@ export const router = createBrowserRouter([
           fetch(
             `https://fullstack-assignment11-server.vercel.app/services/${params.id}`
           ),
-        element: <ShowDetails></ShowDetails>,
+        element: (
+          <PrivateRoute>
+            <ShowDetails></ShowDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myReviews",

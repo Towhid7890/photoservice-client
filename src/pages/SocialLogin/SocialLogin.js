@@ -9,6 +9,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { MyContext } from "../../context/AuthContext";
 
 const SocialLogin = () => {
+  const [loading, setLoading] = useState("");
   const [error, setError] = useState("");
   const { providerLogin } = useContext(MyContext);
   const googleProvider = new GoogleAuthProvider();
@@ -34,7 +35,9 @@ const SocialLogin = () => {
     providerLogin(googleProvider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        if (loading) {
+          return <button className="btn btn-square loading"></button>;
+        }
         navigate(from, { replace: true });
       })
       .catch((error) => {
