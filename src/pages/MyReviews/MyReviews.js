@@ -8,11 +8,7 @@ const MyReviews = () => {
   const { user } = useContext(MyContext);
   const [reviews, setReviews] = useState([]);
   const url = `https://fullstack-assignment11-server.vercel.app/myReviews?email=${user.email}`;
-  fetch(url, {
-    headers: {
-      authorization: `Bearer ${localStorage.getItem("picman-token")}`,
-    },
-  })
+  fetch(url)
     .then((res) => res.json())
     .then((data) => setReviews(data));
 
@@ -28,9 +24,10 @@ const MyReviews = () => {
           </p>
         ) : (
           <>
-            {reviews.map((review) => (
-              <ReviewCard review={review} key={review._id}></ReviewCard>
-            ))}
+            {reviews &&
+              reviews.map((review) => (
+                <ReviewCard review={review} key={review._id}></ReviewCard>
+              ))}
           </>
         )}
       </div>
