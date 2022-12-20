@@ -11,7 +11,7 @@ const Services = () => {
   }, []);
 
   return (
-    <div>
+    <div className="py-28">
       <div>
         <h1 className="text-4xl text-center mt-10 font-bold text-white">
           All Of My Services
@@ -24,7 +24,7 @@ const Services = () => {
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 mx-auto gap-10 mt-10 pb-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 mx-auto gap-10 mt-16 pb-10">
               {services.map((service) => (
                 <Service key={service._id} service={service}></Service>
               ))}

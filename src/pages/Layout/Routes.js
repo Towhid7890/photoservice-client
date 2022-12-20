@@ -10,6 +10,7 @@ import MyReviews from "../MyReviews/MyReviews";
 import AddService from "./../AllService/AddService";
 import Blog from "./../Home/Blog/Blog";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Faq from "./../Home/Faq/Faq";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/faq",
+        element: <Faq></Faq>,
       },
       {
         path: "/allServices",

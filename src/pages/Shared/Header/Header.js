@@ -76,7 +76,7 @@ const Header = () => {
 
                 <div className="avatar tool ">
                   <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                    <img src={user?.photoURL} />
+                    <img src={user?.photoURL} alt="" />
                   </div>
                 </div>
                 <NavLink onClick={handleLogout} className="mt-2 normal-case">
@@ -121,6 +121,12 @@ const Header = () => {
 
         <NavLink to="/blog" className="btn btn-ghost normal-case">
           Blog
+        </NavLink>
+        <NavLink to="/faq" className="btn btn-ghost normal-case">
+          FAQ
+        </NavLink>
+        <NavLink to="/contact" className="btn btn-ghost normal-case">
+          Contact
         </NavLink>
         {user?.uid ? (
           <>
