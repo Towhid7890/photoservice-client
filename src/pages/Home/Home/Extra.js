@@ -4,7 +4,7 @@ const Extra = () => {
   return (
     <div className="hero extra-container mt-5">
       <div className="hero-overlay bg-opacity-65"></div>
-      <div className="hero-content text-center text-neutral-content py-10">
+      <div className="hero-content text-center text-neutral-content py-12">
         <div className="max-w-md">
           <h1 className="mb-5 text-5xl font-bold">
             Explore PicMan Photography

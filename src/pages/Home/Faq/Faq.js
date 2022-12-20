@@ -11,7 +11,7 @@ const Faq = () => {
         className="collapse collapse-plus border border-base-300 bg-base-100 mt-12 text-center rounded-box"
       >
         <div className="collapse-title text-xl font-medium">
-          Focus me to see content
+          How to book my service??
         </div>
         <div className="collapse-content">
           <p>tabIndex={0} attribute is necessary to make the div focusable</p>
@@ -37,6 +37,17 @@ const Faq = () => {
         </div>
         <div className="collapse-content">
           <p>tabIndex={2} attribute is necessary to make the div focusable</p>
+        </div>
+      </div>
+      <div
+        tabIndex={3}
+        className="collapse collapse-plus border border-base-300 bg-base-100 my-2 text-center  rounded-box"
+      >
+        <div className="collapse-title text-xl font-medium">
+          What is advantages of premium service??
+        </div>
+        <div className="collapse-content">
+          <p>tabIndex={3} attribute is necessary to make the div focusable</p>
         </div>
       </div>
     </div>

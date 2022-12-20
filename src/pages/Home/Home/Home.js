@@ -6,6 +6,7 @@ import HomeReview from "./HomeReview";
 import Extra from "./Extra";
 import Intro from "./Intro";
 import Faq from "../Faq/Faq";
+import Review from "../Review";
 
 const Home = () => {
   useTitle("home");
@@ -17,6 +18,7 @@ const Home = () => {
       <Extra></Extra>
       <HomeReview></HomeReview>
       <Faq></Faq>
+      <Review></Review>
     </div>
   );
 };
